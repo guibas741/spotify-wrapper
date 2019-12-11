@@ -1,0 +1,57 @@
+{
+  "name": "js-tdd",
+  "version": "1.0.0",
+  "description": "biblioteca do curso js com tdd",
+  "main": "index.js",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint src/*js",
+    "prepush": "npm run lint && npm run test:coverage",
+    "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register",
+    "test:tdd": "npm run test -- --watch",
+    "test:coverage": "nyc npm run test"
+  },
+  "nyc": {
+    "lines": 80,
+    "functions": 80,
+    "check-coverage": true,
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "exclude": [
+      "tests/**"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guibas741/js-tdd.git"
+  },
+  "keywords": [
+    "js",
+    "tdd",
+    "library"
+  ],
+  "author": "Guilherme Augusto <bublitz.stein@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/guibas741/js-tdd/issues"
+  },
+  "homepage": "https://github.com/guibas741/js-tdd#readme",
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "chai": "^4.2.0",
+    "eslint": "^6.7.1",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "husky": "^3.1.0",
+    "mocha": "^6.2.2",
+    "node-fetch": "^2.6.0",
+    "nyc": "^14.1.1",
+    "sinon": "^7.5.0",
+    "sinon-chai": "^3.3.0"
+  }
+}
