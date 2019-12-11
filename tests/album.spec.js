@@ -52,4 +52,24 @@ describe('Album', () => {
       });
     });
   });
+
+  describe('getAlbumTracks', () => {
+    it('should call fetch method', () => {
+      const albumTracks = getAlbumTracks();
+      expect(fetchedStub).to.be.calledOnce;
+    });
+
+    it('should call the correct URL', () => {
+      const albumTracks = getAlbumTracks('4aawyAB9vmqN3uQ7FjRGTy');
+      expect(fetchedStub).to.have.been
+        .calledWith('https://api.spotify.com/v1/albums/4aawyAB9vmqN3uQ7FjRGTy/tracks');
+    });
+
+    it('should return the correct data from the promise', () => {
+      const albumTracks = getAlbumTracks('4aawyAB9vmqN3uQ7FjRGTy');
+      albumTracks.then((data) => {
+        expect(data).to.be.eql({});
+      });
+    });
+  });
 });

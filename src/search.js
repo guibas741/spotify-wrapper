@@ -1,7 +1,10 @@
 /* eslint-disable arrow-body-style */
+import { API_URL } from './config';
+import { toJSON } from './utils';
+
 export const search = (query, type) => {
-  return fetch(`https://api.spotify.com/v1/search?=${query}&type=${type}`)
-    .then((data) => data.json());
+  return fetch(`${API_URL}/search?=${query}&type=${type}`)
+    .then(toJSON);
 };
 export const searchAlbums = (query) => {
   search(query, 'album');

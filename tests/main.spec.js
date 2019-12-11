@@ -6,13 +6,13 @@ import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 import {
   search, searchAlbums, searchArtists, searchPlaylists, searchTracks,
-} from '../src/main';
+} from '../src/search';
 
 chai.use(sinonChai);
 
 global.fetch = require('node-fetch');
 
-describe('Spotify-wrapper', () => {
+describe('Search', () => {
   let fetchedStub;
   let promise;
 
@@ -47,7 +47,7 @@ describe('Spotify-wrapper', () => {
     });
   });
 
-  describe('generic serach', () => {
+  describe('generic search', () => {
     it('should call fetch function', () => {
       const artists = search();
 
