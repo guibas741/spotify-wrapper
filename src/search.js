@@ -1,9 +1,9 @@
 /* eslint-disable arrow-body-style */
-import { API_URL } from './config';
+import { API_URL, HEADERS } from './config';
 import { toJSON } from './utils';
 
 export const search = (query, type) => {
-  return fetch(`${API_URL}/search?=${query}&type=${type}`)
+  return fetch(`${API_URL}/search?=${query}&type=${type}`, HEADERS)
     .then(toJSON);
 };
 export const searchAlbums = (query) => {
