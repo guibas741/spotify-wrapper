@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import {
   search,
   searchArtists,
@@ -17,5 +18,14 @@ export default class SpotifyWrapper {
   constructor(options) {
     this.apiURL = options.apiURL || API_URL;
     this.token = options.token;
+  }
+
+  request(url) {
+    const headers = {
+      headers: {
+        Authorization: `Bearer ${this.token}`,
+      },
+    };
+    return fetch(url, headers);
   }
 }
