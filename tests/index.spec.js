@@ -11,11 +11,9 @@ global.fetch = require('node-fetch');
 
 describe('SpotifyWrapper Lib', () => {
   let stubbedFetch;
-  //let promise;
 
   beforeEach(() => {
     stubbedFetch = sinon.stub(global, 'fetch');
-    //promise = stubbedFetch.resolves({ json: () => ({ }) });
   });
 
   afterEach(() => {
