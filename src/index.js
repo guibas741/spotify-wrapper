@@ -1,12 +1,5 @@
 /* eslint-disable no-unused-vars */
-import {
-  search,
-  searchArtists,
-  searchAlbums,
-  searchTracks,
-  searchPlaylists,
-} from './search';
-
+import search from './search';
 import album from './album';
 
 import { API_URL } from './config';
@@ -17,6 +10,7 @@ export default class SpotifyWrapper {
     this.token = options.token;
     // Linkar com o bind o this da classe com o metodo para utilizar this.apiURL por exemplo
     this.album = album.bind(this)();
+    this.search = search.bind(this)();
   }
 
   request(url) {

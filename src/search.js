@@ -1,20 +1,12 @@
-/* eslint-disable arrow-body-style */
-import { API_URL, HEADERS } from './config';
-import { toJSON } from './utils';
+function searcher(type, query) {
+  return this.request(`${this.apiURL}/search?=${query}&type=${type}`);
+}
 
-export const search = (query, type) => {
-  return fetch(`${API_URL}/search?=${query}&type=${type}`, HEADERS)
-    .then(toJSON);
-};
-export const searchAlbums = (query) => {
-  search(query, 'album');
-};
-export const searchArtists = (query) => {
-  search(query, 'artist');
-};
-export const searchTracks = (query) => {
-  search(query, 'track');
-};
-export const searchPlaylists = (query) => {
-  search(query, 'playlist');
-};
+export default function search() {
+  return {
+    searchAlbums: searcher.bind(this, 'album'),
+    searchArtists: searcher.bind(this, 'artist'),
+    searchTracks: searcher.bind(this, 'track'),
+    searchPlaylists: searcher.bind(this, 'playlist'),
+  };
+}
